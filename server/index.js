@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-    res.send("Lets build the Task Manager App");
+    res.send("Lets build Task Manager App");
 });
 
 
