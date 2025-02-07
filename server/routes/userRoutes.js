@@ -49,6 +49,25 @@ router.post('/login', async (req, res) => {
     }
 });
 
+
+// Logout  Route
+router.post('/logout', async(req, res) => {
+    try{
+        const user = await User.findOne({email: email})
+        
+        if(!user){
+            res.status(404).json("User not found");
+        }
+
+        res.status(200).json("Logout Successfully");
+
+    }catch(err){
+        console.log(err);
+        res.status(400).json({error: "something went wrong"});
+    }
+});
+
+
 //  Profile Route
 router.get('/profile', async (req, res) => {
     try {
@@ -59,5 +78,6 @@ router.get('/profile', async (req, res) => {
         res.status(500).json({ msg: "Something went wrong!" });
     }
 });
+
 
 module.exports = router;
